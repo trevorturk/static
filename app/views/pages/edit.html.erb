@@ -1,0 +1,18 @@
+<h1>Edit page</h1>
+
+<% form_for(@page) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Save changes' %> or
+    <%= link_to 'cancel', root_path %>
+  </p>
+<% end %>
