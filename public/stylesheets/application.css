@@ -1,3 +1,6 @@
 body {margin:20px 50px;}
 h1 {font-size:20px; margin:10px 0;}
 p {margin:10px 0;}
+a {color: #24a; text-decoration: none;}
+a:hover, a:active {text-decoration: underline;}
+h1 a {color: #000;}

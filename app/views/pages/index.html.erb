@@ -1,13 +1,13 @@
-<h1>static</h1>
-
-<ul>
+<table>
   <% @pages.each do |page| %>
-    <li>
-      <%= link_to page, slug_path(page.slug) %>
-      <%= link_to '(edit)', edit_page_path(page) %>
-      <%= link_to '(delete)', page, :confirm => 'Are you sure?', :method => :delete %>
-    </li>
+    <tr>
+      <td><%= link_to page, slug_path(page.slug) %> &nbsp; </td>
+      <td>
+        <%= link_to '(edit)', edit_page_path(page) %>
+        <%= link_to '(delete)', page, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <p><%= link_to 'New page', new_page_path %></p>

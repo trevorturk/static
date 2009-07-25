@@ -6,10 +6,8 @@
   <%= stylesheet_link_tag 'reset', 'application' %>
 </head>
 <body>
- 
-<%= flash[:error] || flash[:notice] %>
- 
-<%= yield %>
- 
+  <h1><%= link_to 'static', root_path %></h1>
+  <%= flash[:error] || flash[:notice] %>
+  <%= yield %>
 </body>
 </html>
