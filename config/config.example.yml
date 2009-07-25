@@ -1,0 +1,21 @@
+development:
+  session_key: static_development
+  session_secret: ESl6X3oKM1i1RRrD2QLwUUzz9jr1zxNO
+
+test:
+  session_key: static_test
+  session_secret: vrwPpJTvwnMVLP1wTSgqigSl7PMI7QcE
+  
+production:
+  # SESSION SETTINGS (required)
+  # More info: http://guides.rubyonrails.org/security.html#session-storage
+  session_key: # a unique string that identifies your app
+  session_secret: # a random string, at least 32 characters long, that should be unique to your installation and kept secret
+  
+  # AMAZON S3 (optional, required for Heroku)  
+  # More info from Heroku: http://docs.heroku.com/constraints#read-only-filesystem
+  # Visit the Amazon S3 site to sign up for an access_id and secret_key: https://s3.amazonaws.com/
+  # The bucket name can be any unique string, and once set here it can be created by running "rake s3:create" 
+  s3_access_id: 
+  s3_secret_key: 
+  s3_bucket_name: 

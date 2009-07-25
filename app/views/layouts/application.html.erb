@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>static</title>
+  <%= stylesheet_link_tag 'reset', 'application' %>
+</head>
+<body>
+ 
+<%= flash[:error] || flash[:notice] %>
+ 
+<%= yield %>
+ 
+</body>
+</html>
