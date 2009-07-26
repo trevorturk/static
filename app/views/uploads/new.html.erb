@@ -1,0 +1,7 @@
+<% form_for(@upload, :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+  <p><%= f.file_field :attachment %></p>
+  <p>...or upload via URL:</p>
+  <p><%= f.text_field :attachment_url %></p>
+  <p><%= f.submit 'Upload', :disable_with => "Upload" %> or <%= link_to 'cancel', files_path %></p>
+<% end %>

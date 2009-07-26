@@ -1,0 +1,13 @@
+<table>
+
+<% @uploads.each do |upload| %>
+  <tr>
+      <td><%= link_to truncate(upload.to_s, :length => 25), upload.attachment.url %> &nbsp; &nbsp; </td>
+      <td><%= upload.attachment_content_type %> &nbsp; </td>
+      <td><%= number_to_human_size(upload.attachment_file_size) %> &nbsp; </td>
+      <td><%= link_to 'delete', upload, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to 'Upload a new file &raquo;', new_upload_path %></p>

@@ -9,3 +9,4 @@
 /config/smtp.yml
 /config/deploy.rb
 /db/*.sqlite3
+/public/files/*
