@@ -1,13 +1,13 @@
 <table>
   <% @pages.each do |page| %>
     <tr>
-      <td><%= link_to page, slug_path(page.slug) %> &nbsp; </td>
+      <td><b><%= link_to page, slug_path(page.slug) %></b> &nbsp; &nbsp; </td>
       <td>
-        <%= link_to '(edit)', edit_page_path(page) %>
-        <%= link_to '(delete)', page, :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'edit', edit_page_path(page) %> &nbsp; 
+        <%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to 'New page', new_page_path %></p>
+<p><%= link_to 'New page &raquo;', new_page_path %></p>
