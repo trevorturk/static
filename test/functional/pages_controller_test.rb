@@ -68,4 +68,13 @@ class PagesControllerTest < ActionController::TestCase
     end
   end
   
+  test "should use custom layout if provided for show or home actions" do
+    p = Page.make
+    Setting.make(:key => 'layout', :value => '<title><%= "custom" + " layout" %></title>')
+    get :show, :id => p.slug
+    assert_select 'title', 'custom layout'
+    get :home
+    assert_select 'title', 'custom layout'
+  end
+  
 end
