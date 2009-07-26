@@ -11,6 +11,15 @@ class Page < ActiveRecord::Base
     self.slug = to_param rescue nil
   end
   
+  auto_html_for :body do
+    image
+    google_video
+    vimeo
+    youtube
+    link
+    simple_format
+  end
+  
   def to_s
     title
   end
