@@ -5,7 +5,13 @@ Static is a super simple Rails CMS for Heroku.
 http://github.com/trevorturk/static/
 
 
-== Install
+== Requirements 
+
+Rails: http://guides.rubyonrails.org/getting_started.html
+Git: http://book.git-scm.com/2_installing_git.html
+
+
+== Installation
 
 git clone git://github.com/trevorturk/static.git my_site
 cd my_site
@@ -17,7 +23,7 @@ script/server
 # http://localhost:3000/
 
 
-== Deploy
+== Deployment
 
 sudo gem install heroku
 heroku create my_site
@@ -30,7 +36,7 @@ heroku open
 # Read more about Heroku here: http://heroku.com/
 
 
-== Upgrade
+== Upgrading
 
 git pull
 # Review possible config changes in config/config.example.yml
