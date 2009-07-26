@@ -11,6 +11,12 @@ class Page < ActiveRecord::Base
     self.slug = to_param rescue nil
   end
   
+  def self.home
+    find_by_slug!('home')
+  rescue ActiveRecord::RecordNotFound
+    Page.create!(:title => 'Home', :body => 'Welcome to Static. Visit <a href="/admin">/admin</a> to get started.')
+  end
+  
   auto_html_for :body do
     image
     google_video

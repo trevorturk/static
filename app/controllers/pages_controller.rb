@@ -40,4 +40,9 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
   
+  def home
+    @page = Page.home
+    render :action => 'show'
+  end
+  
 end

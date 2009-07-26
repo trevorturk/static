@@ -54,4 +54,18 @@ class PagesControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
   
+  test "should get home" do
+    p = Page.make(:title => 'home')
+    get :home
+    assert_equal p, assigns(:page)
+  end
+  
+  test "should create and get home if no pages exist" do
+    Page.destroy_all
+    assert_difference 'Page.count' do
+      get :home
+      assert_equal Page.home, assigns(:page)
+    end
+  end
+  
 end

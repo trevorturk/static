@@ -7,5 +7,12 @@ class ApplicationTest < ActionController::IntegrationTest
     get "/#{p.slug}"
     assert_response :success
   end
-
+  
+  test "blank app" do
+    Page.destroy_all
+    Setting.destroy_all
+    get "/"
+    assert_response :success
+  end
+  
 end

@@ -48,6 +48,23 @@ class PageTest < ActiveSupport::TestCase
     assert_equal p.slug, p.to_param
   end
   
+  test "home" do
+    p = Page.make(:title => 'home')
+    assert_equal p, Page.home
+  end
+  
+  test "home creates home page if none exists" do
+    Page.destroy_all
+    assert_difference 'Page.count' do
+      p = Page.home
+      assert_equal p, Page.home
+      assert_equal 'Home', Page.last.title
+    end
+    assert_no_difference 'Page.count' do
+      Page.home
+    end
+  end
+    
   test "to_s returns title" do
     p = Page.make
     assert_equal p.title, p.to_s
