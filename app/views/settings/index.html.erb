@@ -1,0 +1,12 @@
+<table>
+  <% @settings.each do |setting| %>
+    <tr>
+      <td><%= setting.key %> &nbsp; &nbsp; </td>
+      <td><%= setting.value %> &nbsp; &nbsp; </td>
+      <td><%= link_to 'edit', edit_setting_path(setting) %> &nbsp; </td>
+      <td><%= link_to 'delete', setting, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'New setting &raquo;', new_setting_path %></p>

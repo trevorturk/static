@@ -1,0 +1,17 @@
+<h1>New setting</h1>
+
+<% form_for(@setting) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :key %><br />
+    <%= f.text_field :key %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_area :value %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %> or <%= link_to 'cancel', settings_path %>
+  </p>
+<% end %>

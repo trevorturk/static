@@ -9,3 +9,8 @@ Page.blueprint do
   title { Sham.title }
   body { Sham.body }
 end
+
+Setting.blueprint do
+  key { Sham.title }
+  value { Sham.body }
+end
