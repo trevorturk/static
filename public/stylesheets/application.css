@@ -4,8 +4,9 @@ p {margin:10px 0;}
 a {color:#204a87; text-decoration:none;}
 a:hover, a:active {text-decoration:underline;}
 table td {vertical-align:top; padding:4px 8px 4px 0;}
-.admin {margin-bottom:40px;}
-.admin h1 {border-bottom:1px solid #d3d7cf;}
+.admin .header .left {float:left;}
+.admin .header .right {float:right;}
 .admin .action {float:right;}
-.footer .left {display:block; position:absolute; bottom:15px; left:30px;}
-.footer .right {display:block; position:absolute; bottom:15px; right:30px;}
+.admin table {margin-bottom:40px;}
+.admin h1 {border-bottom:1px solid #d3d7cf;}
+.clear {clear:both;}

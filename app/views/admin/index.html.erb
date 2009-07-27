@@ -1,4 +1,11 @@
 <div class="admin">
+  
+  <div class="header">
+    <p class="left"><%= link_to '&laquo; View site', root_path %></p>
+    <p class="right">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
+  </div>
+  <div class="clear">&nbsp;</div>
+  
   <h1>Pages</h1>
   <p class="action"><%= link_to 'New page &raquo;', new_page_path %></p>
   <table>
@@ -10,9 +17,7 @@
       </tr>
     <% end %>
   </table>
-</div>
 
-<div class="admin">
   <h1>Files</h1>
   <p class="action"><%= link_to 'New file &raquo;', new_upload_path %></p>
   <table>
@@ -37,9 +42,7 @@
     </tr>
   <% end %>
   </table>
-</div>
 
-<div class="admin">
   <h1>Settings</h1>
   <p class="action"><%= link_to 'New setting &raquo;', new_setting_path %></p>
   <table>
@@ -52,9 +55,5 @@
       </tr>
     <% end %>
   </table>
-</div>
-
-<div class="footer">
-  <p class="left"><%= link_to '&laquo; View site', root_path %></p>
-  <p class="right">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
+    
 </div>
