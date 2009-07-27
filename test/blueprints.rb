@@ -11,11 +11,6 @@ Page.blueprint do
   body { Sham.body }
 end
 
-Setting.blueprint do
-  key { Sham.title }
-  value { Sham.body }
-end
-
 Upload.blueprint do
   attachment_file_name { Sham.file_name }
 end

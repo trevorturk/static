@@ -16,7 +16,7 @@ class Upload < ActiveRecord::Base
   else
     has_attached_file :attachment, 
                       :storage => :filesystem, 
-                      :url => "/files/:basename_:style.:extension",
+                      :url => "/uploads/:basename_:style.:extension",
                       :default_style => :medium,
                       :styles => { :square => '75x75#', :thumb => '100x100>', :small => '240x240>', :medium => '500x500>', :large => '1024x1024>' }
   end

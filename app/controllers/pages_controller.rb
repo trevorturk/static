@@ -2,7 +2,7 @@ class PagesController < ApplicationController
     
   def show
     @page = Page.find_by_slug!(params[:id])
-    render :action => 'show', :layout => set_layout
+    render :action => 'show', :layout => 'custom'
   end
   
   def new
@@ -39,13 +39,7 @@ class PagesController < ApplicationController
   
   def home
     @page = Page.home
-    render :action => 'show', :layout => set_layout
-  end
-  
-  private
-  
-  def set_layout
-    Setting.get('layout') ? 'custom' : 'application'
+    render :action => 'show', :layout => 'custom'
   end
   
 end

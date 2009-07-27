@@ -13,7 +13,7 @@
     <% end %>
   </table>
 
-  <h1>Files <span class="link"><%= link_to 'new &raquo;', new_upload_path %></span></h1>
+  <h1>Uploads <span class="link"><%= link_to 'new &raquo;', new_upload_path %></span></h1>
   <table>
   <% @uploads.each do |upload| %>
     <tr>
@@ -37,17 +37,12 @@
   <% end %>
   </table>
 
-  <h1>Settings <span class="link"><%= link_to 'new &raquo;', new_setting_path %></span></h1>
-  <table>
-    <% @settings.each do |setting| %>
-      <tr>
-        <td><%= setting.key %></td>
-        <td><%= setting.value %></td>
-        <td><%= link_to 'edit', edit_setting_path(setting) %></td>
-        <td><%= link_to 'delete', setting, :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
-    <% end %>
-  </table>
+  <h1>Theme</h1>
+  <% form_for(@theme, :url => edit_theme_path) do |f| %>
+    <%= f.error_messages %>
+    <p><%= f.text_area :body, :rows => '8', :cols => '60' %></p>
+    <p><%= f.submit 'Save theme' %> or <%= link_to 'cancel', admin_path %></p>
+  <% end %>
   
   <p class="footer">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
   

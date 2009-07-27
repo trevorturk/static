@@ -6,8 +6,8 @@ a:hover, a:active {text-decoration:underline;}
 table td {vertical-align:top; padding:4px 8px 4px 0;}
 .admin table {margin-bottom:40px;}
 .admin h1 {border-bottom:1px solid #eeeeec; padding-bottom:4px;}
-.admin h1 .link {font-size:14px; font-weight:normal;}
+.admin h1 .link {font-size:14px; font-weight:normal; margin-left:4px;}
 .admin .action {float:right;}
 .admin .header {text-align:right;}
-.admin .footer {text-align:right; padding-top:30px; color:#babdb6;}
+.admin .footer {text-align:right; padding-top:40px; color:#babdb6;}
 .admin .footer a {color:#888a85;}
