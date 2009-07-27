@@ -40,7 +40,7 @@
   <h1>Theme</h1>
   <% form_for(@theme, :url => edit_theme_path) do |f| %>
     <%= f.error_messages %>
-    <p><%= f.text_area :body, :rows => '8', :cols => '60' %></p>
+    <p><%= f.text_area :body, :rows => '12', :cols => '70' %></p>
     <p><%= f.submit 'Save theme' %> or <%= link_to 'cancel', admin_path %></p>
   <% end %>
   
