@@ -1,6 +1,6 @@
 <div class="admin">
   
-  <p class="header"><%= link_to '&laquo; View site', root_path %></p>
+  <p class="header"><%= link_to 'View site &raquo;', root_path %></p>
   
   <h1>Pages <span class="link"><%= link_to 'new &raquo;', new_page_path %></span></h1>
   <table>
@@ -8,7 +8,7 @@
       <tr>
         <td><b><%= link_to page, slug_path(page.slug) %></b></td>
         <td><%= link_to 'edit', edit_page_path(page) %></td>
-        <td><%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete unless page.home? %></td>
       </tr>
     <% end %>
   </table>

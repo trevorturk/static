@@ -17,6 +17,10 @@ class Page < ActiveRecord::Base
     Page.create!(:title => 'Home', :body => 'Welcome to Static. Visit <a href="/admin">/admin</a> to get started.')
   end
   
+  def home?
+    slug == 'home'
+  end
+  
   auto_html_for :body do
     image
     google_video

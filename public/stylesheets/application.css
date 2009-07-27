@@ -4,10 +4,10 @@ p {margin:10px 0;}
 a {color:#204a87; text-decoration:none;}
 a:hover, a:active {text-decoration:underline;}
 table td {vertical-align:top; padding:4px 8px 4px 0;}
-.admin .action {float:right;}
 .admin table {margin-bottom:40px;}
-.admin h1 {border-bottom:1px solid #d3d7cf; padding-bottom:3px;}
-.admin h1 .link {font-size:14px;}
-.admin .header {margin-bottom:30px;}
+.admin h1 {border-bottom:1px solid #eeeeec; padding-bottom:4px;}
+.admin h1 .link {font-size:14px; font-weight:normal;}
+.admin .action {float:right;}
+.admin .header {text-align:right;}
 .admin .footer {text-align:right; padding-top:30px; color:#babdb6;}
 .admin .footer a {color:#888a85;}

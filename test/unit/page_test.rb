@@ -64,7 +64,14 @@ class PageTest < ActiveSupport::TestCase
       Page.home
     end
   end
-    
+  
+  test "home? returns true if page is home, false otherwise" do
+    p1 = Page.make(:title => 'home')
+    p2 = Page.make
+    assert p1.home?
+    assert !p2.home?
+  end
+  
   test "to_s returns title" do
     p = Page.make
     assert_equal p.title, p.to_s
