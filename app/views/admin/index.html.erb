@@ -2,8 +2,7 @@
   
   <p class="header"><%= link_to '&laquo; View site', root_path %></p>
   
-  <h1>Pages</h1>
-  <p class="action"><%= link_to 'New page &raquo;', new_page_path %></p>
+  <h1>Pages <span class="link"><%= link_to 'new &raquo;', new_page_path %></span></h1>
   <table>
     <% @pages.each do |page| %>
       <tr>
@@ -14,8 +13,7 @@
     <% end %>
   </table>
 
-  <h1>Files</h1>
-  <p class="action"><%= link_to 'New file &raquo;', new_upload_path %></p>
+  <h1>Files <span class="link"><%= link_to 'new &raquo;', new_upload_path %></span></h1>
   <table>
   <% @uploads.each do |upload| %>
     <tr>
@@ -39,8 +37,7 @@
   <% end %>
   </table>
 
-  <h1>Settings</h1>
-  <p class="action"><%= link_to 'New setting &raquo;', new_setting_path %></p>
+  <h1>Settings <span class="link"><%= link_to 'new &raquo;', new_setting_path %></span></h1>
   <table>
     <% @settings.each do |setting| %>
       <tr>
