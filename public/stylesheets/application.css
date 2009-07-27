@@ -1,7 +1,11 @@
-body {margin:20px 50px; color: #2e3436;}
+body {background:#fff; color:#2e3436; margin:15px 30px;}
 h1 {font-size:20px; margin:10px 0;}
 p {margin:10px 0;}
-a {color: #204a87; text-decoration: none;}
-a:hover, a:active {text-decoration: underline;}
-h1 a {color: #2e3436;}
-table td {vertical-align: top; padding: 4px 8px 4px 0;}
+a {color:#204a87; text-decoration:none;}
+a:hover, a:active {text-decoration:underline;}
+table td {vertical-align:top; padding:4px 8px 4px 0;}
+.admin {margin-bottom:40px;}
+.admin h1 {border-bottom:1px solid #d3d7cf;}
+.admin .action {float:right;}
+.footer .left {display:block; position:absolute; bottom:15px; left:30px;}
+.footer .right {display:block; position:absolute; bottom:15px; right:30px;}

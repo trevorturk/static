@@ -1,8 +1,4 @@
 class SettingsController < ApplicationController
-
-  def index
-    @settings = Setting.all
-  end
   
   def new
     @setting = Setting.new
@@ -15,7 +11,7 @@ class SettingsController < ApplicationController
   def create
     @setting = Setting.new(params[:setting])
     if @setting.save
-      redirect_to settings_path
+      redirect_to admin_path
     else
       render :action => "new"
     end
@@ -24,7 +20,7 @@ class SettingsController < ApplicationController
   def update
     @setting = Setting.find(params[:id])
     if @setting.update_attributes(params[:setting])
-      redirect_to settings_path
+      redirect_to admin_path
     else
       render :action => "edit"
     end
@@ -33,7 +29,7 @@ class SettingsController < ApplicationController
   def destroy
     @setting = Setting.find(params[:id])
     @setting.destroy
-    redirect_to settings_path
+    redirect_to admin_path
   end
   
 end

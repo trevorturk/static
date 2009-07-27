@@ -2,12 +2,6 @@ require 'test_helper'
 
 class SettingsControllerTest < ActionController::TestCase
   
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:settings)
-  end
-
   test "should get new" do
     get :new
     assert_response :success
@@ -17,7 +11,7 @@ class SettingsControllerTest < ActionController::TestCase
     assert_difference('Setting.count') do
       post :create, :setting => Setting.plan
     end
-    assert_redirected_to settings_path
+    assert_redirected_to admin_path
   end
   
   test "should get edit" do
@@ -29,7 +23,7 @@ class SettingsControllerTest < ActionController::TestCase
   test "should update setting" do
     s = Setting.make
     put :update, :id => s.to_param, :setting => { }
-    assert_redirected_to settings_path
+    assert_redirected_to admin_path
   end
 
   test "should destroy setting" do
@@ -37,7 +31,7 @@ class SettingsControllerTest < ActionController::TestCase
     assert_difference('Setting.count', -1) do
       delete :destroy, :id => s.to_param
     end
-    assert_redirected_to settings_path
+    assert_redirected_to admin_path
   end
   
 end

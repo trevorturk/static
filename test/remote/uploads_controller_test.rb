@@ -10,7 +10,7 @@ class UploadsControllerTest < ActionController::TestCase
     assert_difference 'Upload.count' do
       post :create, :upload => { :attachment_url => 'http://www.google.com/intl/en_ALL/images/logo.gif' }
     end
-    assert_redirected_to files_path
+    assert_redirected_to admin_path
   end
   
   test "should not bomb on upload via bogus (real) url" do

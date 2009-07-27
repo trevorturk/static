@@ -3,5 +3,5 @@
   <p><%= f.file_field :attachment %></p>
   <p>...or upload via URL:</p>
   <p><%= f.text_field :attachment_url %></p>
-  <p><%= f.submit 'Upload', :disable_with => "Upload" %> or <%= link_to 'cancel', files_path %></p>
+  <p><%= f.submit 'Upload', :disable_with => "Upload" %> or <%= link_to 'cancel', admin_path %></p>
 <% end %>

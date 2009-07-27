@@ -1,17 +1,7 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
-  
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:pages)
-    Page.make
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:pages)
-  end
-  
+    
   test "show" do
     p = Page.make
     get :show, :id => p.slug
@@ -33,7 +23,7 @@ class PagesControllerTest < ActionController::TestCase
     assert_difference('Page.count') do
       post :create, :page => Page.plan
     end
-    assert_redirected_to slug_path(assigns(:page).slug)
+    assert_redirected_to admin_path
   end
   
   test "should get edit" do
@@ -47,7 +37,7 @@ class PagesControllerTest < ActionController::TestCase
     put :update, :id => p.to_param, :page => { :title => 'changed' }
     p.reload
     assert_equal 'changed', p.title
-    assert_redirected_to slug_path(assigns(:page).slug)
+    assert_redirected_to admin_path
   end
 
   test "should destroy page" do
@@ -55,7 +45,7 @@ class PagesControllerTest < ActionController::TestCase
     assert_difference('Page.count', -1) do
       delete :destroy, :id => p.to_param
     end
-    assert_redirected_to root_path
+    assert_redirected_to admin_path
   end
   
   test "should get home" do

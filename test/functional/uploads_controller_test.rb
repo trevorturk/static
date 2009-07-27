@@ -2,16 +2,6 @@ require 'test_helper'
 
 class UploadsControllerTest < ActionController::TestCase
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:uploads)
-    Upload.make
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:uploads)
-  end
-
   test "should get new" do
     get :new
     assert_response :success
@@ -21,7 +11,7 @@ class UploadsControllerTest < ActionController::TestCase
     assert_difference('Upload.count') do
       post :create, :upload => { :attachment => fixture_file_upload('files/rails.png', 'image/png') }
     end
-    assert_redirected_to files_path
+    assert_redirected_to admin_path
   end
 
   test "should create upload via (stubbed out) url" do
@@ -29,7 +19,7 @@ class UploadsControllerTest < ActionController::TestCase
     assert_difference 'Upload.count' do
       post :create, :upload => { :attachment_url => 'rails.png' }
     end
-    assert_redirected_to files_path
+    assert_redirected_to admin_path
   end
   
   test "should not bomb on upload via bogus (stubbed out) url" do
@@ -45,7 +35,7 @@ class UploadsControllerTest < ActionController::TestCase
     assert_difference('Upload.count', -1) do
       delete :destroy, :id => u.to_param
     end
-    assert_redirected_to files_path
+    assert_redirected_to admin_path
   end
     
 end

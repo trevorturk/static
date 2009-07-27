@@ -1,0 +1,60 @@
+<div class="admin">
+  <h1>Pages</h1>
+  <p class="action"><%= link_to 'New page &raquo;', new_page_path %></p>
+  <table>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><b><%= link_to page, slug_path(page.slug) %></b></td>
+        <td><%= link_to 'edit', edit_page_path(page) %></td>
+        <td><%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="admin">
+  <h1>Files</h1>
+  <p class="action"><%= link_to 'New file &raquo;', new_upload_path %></p>
+  <table>
+  <% @uploads.each do |upload| %>
+    <tr>
+      <% if upload.image? %>
+        <td>
+          <%= link_to image_tag(upload.attachment.url(:square)), upload.attachment.url %><br />
+          <%= link_to 'sq', upload.attachment.url(:square) %>
+          <%= link_to 'th', upload.attachment.url(:thumb) %>
+          <%= link_to 's', upload.attachment.url(:small) %>
+          <%= link_to 'm', upload.attachment.url(:medium) %>
+          <%= link_to 'l', upload.attachment.url(:large) %>
+          <%= link_to 'o', upload.attachment.url(:original) %>
+        </td>
+      <% else %>
+        <td><%= link_to truncate(upload.to_s), upload.attachment.url %></td>
+      <% end %>
+      <td><%= upload.attachment_content_type %></td>
+      <td><%= number_to_human_size(upload.attachment_file_size) %></td>
+      <td><%= link_to 'delete', upload, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<div class="admin">
+  <h1>Settings</h1>
+  <p class="action"><%= link_to 'New setting &raquo;', new_setting_path %></p>
+  <table>
+    <% @settings.each do |setting| %>
+      <tr>
+        <td><%= setting.key %></td>
+        <td><%= setting.value %></td>
+        <td><%= link_to 'edit', edit_setting_path(setting) %></td>
+        <td><%= link_to 'delete', setting, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="footer">
+  <p class="left"><%= link_to '&laquo; View site', root_path %></p>
+  <p class="right">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
+</div>

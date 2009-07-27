@@ -1,9 +1,5 @@
 class PagesController < ApplicationController
-  
-  def index
-    @pages = Page.all
-  end
-  
+    
   def show
     @page = Page.find_by_slug!(params[:id])
     render :action => 'show', :layout => set_layout
@@ -20,7 +16,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     if @page.save
-      redirect_to slug_path(@page.slug)
+      redirect_to admin_path
     else
       render :action => "new"
     end
@@ -29,7 +25,7 @@ class PagesController < ApplicationController
   def update
     @page = Page.find_by_slug!(params[:id])
     if @page.update_attributes(params[:page])
-      redirect_to slug_path(@page.slug)
+      redirect_to admin_path
     else
       render :action => "edit"
     end
@@ -38,7 +34,7 @@ class PagesController < ApplicationController
   def destroy
     @page = Page.find_by_slug!(params[:id])
     @page.destroy
-    redirect_to root_path
+    redirect_to admin_path
   end
   
   def home
