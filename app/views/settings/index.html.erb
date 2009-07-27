@@ -1,9 +1,9 @@
 <table>
   <% @settings.each do |setting| %>
     <tr>
-      <td><%= setting.key %> &nbsp; &nbsp; </td>
-      <td><%= setting.value %> &nbsp; &nbsp; </td>
-      <td><%= link_to 'edit', edit_setting_path(setting) %> &nbsp; </td>
+      <td><%= setting.key %></td>
+      <td><%= setting.value %></td>
+      <td><%= link_to 'edit', edit_setting_path(setting) %></td>
       <td><%= link_to 'delete', setting, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>

@@ -6,6 +6,10 @@ class PagesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:pages)
+    Page.make
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:pages)
   end
   
   test "show" do

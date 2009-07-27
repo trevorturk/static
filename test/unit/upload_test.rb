@@ -33,5 +33,17 @@ class UploadTest < ActiveSupport::TestCase
       assert r.errors.on(:attachment_file_name)
     end
   end
-    
+  
+  test "should return true for image? if image" do
+    Upload.any_instance.expects(:do_download_remote_file).returns(File.open("#{Rails.root}/test/fixtures/files/rails.png"))
+    r = Upload.create!(:attachment => nil, :attachment_url => 'rails.png')
+    assert_equal true, r.image?
+  end
+  
+  test "should return false for image? if not image" do
+    Upload.any_instance.expects(:do_download_remote_file).returns(File.open("#{Rails.root}/test/fixtures/files/text.txt"))
+    r = Upload.create!(:attachment => nil, :attachment_url => 'text.txt')
+    assert_equal false, r.image?
+  end
+  
 end

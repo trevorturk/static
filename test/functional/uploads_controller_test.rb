@@ -6,6 +6,10 @@ class UploadsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:uploads)
+    Upload.make
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:uploads)
   end
 
   test "should get new" do

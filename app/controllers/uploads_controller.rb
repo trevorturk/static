@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
 
   def index
-    @uploads = Upload.all
+    @uploads = Upload.all(:order => 'attachment_content_type')
   end
 
   def new
