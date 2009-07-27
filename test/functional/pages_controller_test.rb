@@ -64,7 +64,7 @@ class PagesControllerTest < ActionController::TestCase
   
   test "should use custom layout for show or home actions" do
     p = Page.make
-    Theme.get.update_attribute(:body, '<title><%= "custom" + " layout" %></title>')
+    Setting.get.update_attribute(:theme, '<title><%= "custom" + " layout" %></title>')
     get :show, :id => p.slug
     assert_select 'title', 'custom layout'
     get :home

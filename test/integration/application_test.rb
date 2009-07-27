@@ -10,7 +10,7 @@ class ApplicationTest < ActionController::IntegrationTest
   
   test "blank app" do
     Page.destroy_all
-    Theme.destroy_all
+    Setting.destroy_all
     Upload.destroy_all
     get "/"
     assert_response :success

@@ -5,6 +5,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :uploads, :only => [:new, :create, :destroy]
   map.admin '/admin', :controller => 'admin', :action => 'index'
   map.edit_page '/:id/edit', :controller => 'pages', :action => 'edit'
-  map.edit_theme '/admin/theme', :controller => 'admin', :action => 'theme'
+  map.edit_settings '/admin/settings', :controller => 'admin', :action => 'settings'
   map.slug '/:id', :controller => 'pages', :action => 'show'
 end

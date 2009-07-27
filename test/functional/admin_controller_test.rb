@@ -14,10 +14,10 @@ class AdminControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  test "should update theme" do
-    t = Theme.get
-    post :theme, :theme => {:body => 'changed'}
-    assert_equal 'changed', Theme.get.body
+  test "should update settings" do
+    Setting.get
+    post :settings, :setting => {:theme => 'changed'}
+    assert_equal 'changed', Setting.get.theme
     assert_redirected_to admin_path
   end
 

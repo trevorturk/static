@@ -37,11 +37,11 @@
   <% end %>
   </table>
 
-  <h1>Theme</h1>
-  <% form_for(@theme, :url => edit_theme_path) do |f| %>
+  <h1>Settings</h1>
+  <% form_for(@settings, :url => edit_settings_path) do |f| %>
     <%= f.error_messages %>
-    <p><%= f.text_area :body, :rows => '12', :cols => '70' %></p>
-    <p><%= f.submit 'Save theme' %> or <%= link_to 'cancel', admin_path %></p>
+    <p><%= f.text_area :theme, :rows => '12', :cols => '70' %></p>
+    <p><%= f.submit 'Save changes' %> or <%= link_to 'cancel', admin_path %></p>
   <% end %>
   
   <p class="footer">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
