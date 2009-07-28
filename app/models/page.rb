@@ -14,7 +14,7 @@ class Page < ActiveRecord::Base
   def self.home
     find_by_slug!('home')
   rescue ActiveRecord::RecordNotFound
-    Page.create!(:title => 'Home', :body => 'Welcome to Static. Visit <a href="/admin">/admin</a> to get started.')
+    Page.create!(:title => 'Home', :body => '<p>Welcome to Static. Visit <a href="/admin">/admin</a> to get started.</p>')
   end
   
   def home?
