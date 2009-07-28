@@ -21,15 +21,6 @@ class Page < ActiveRecord::Base
     slug == 'home'
   end
   
-  auto_html_for :body do
-    image
-    google_video
-    vimeo
-    youtube
-    link
-    simple_format
-  end
-  
   def to_s
     title
   end
