@@ -9,4 +9,8 @@ class ActiveSupport::TestCase
     Sham.reset
   end
   
+  def authenticate!
+    @controller.stubs(:authenticate_with_http_digest).returns true
+  end
+  
 end

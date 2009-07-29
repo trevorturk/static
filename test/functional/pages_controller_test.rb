@@ -3,11 +3,13 @@ require 'test_helper'
 class PagesControllerTest < ActionController::TestCase
   
   test "should get empty index" do
+    authenticate!
     get :index
     assert_response :success
   end
   
   test "should get full index" do
+    authenticate!
     Page.make
     Setting.get
     Upload.make
@@ -15,23 +17,17 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  # test "index requires authentication" do
-  #   get :index
-  #   assert_response :unauthorized
-  # end
+  test "index requires authentication" do
+    get :index
+    assert_response :unauthorized
+  end
   
   test "show" do
     p = Page.make
     get :show, :id => p.slug
     assert_response :success
   end
-  
-  test "show doesn't require authentication" do
-    p = Page.make
-    get :show, :id => p.slug
-    assert_response :success
-  end
-  
+    
   test "show requires page" do
     assert_raises ActiveRecord::RecordNotFound do
       get :show, :slug => 'invalid'
@@ -39,11 +35,13 @@ class PagesControllerTest < ActionController::TestCase
   end
   
   test "should get new" do
+    authenticate!
     get :new
     assert_response :success
   end
 
   test "should create page" do
+    authenticate!
     assert_difference('Page.count') do
       post :create, :page => Page.plan
     end
@@ -51,12 +49,14 @@ class PagesControllerTest < ActionController::TestCase
   end
   
   test "should get edit" do
+    authenticate!
     p = Page.make
     get :edit, :id => p.to_param
     assert_response :success
   end
 
   test "should update page" do
+    authenticate!
     p = Page.make
     put :update, :id => p.to_param, :page => { :title => 'changed' }
     p.reload
@@ -65,6 +65,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should destroy page" do
+    authenticate!
     p = Page.make
     assert_difference('Page.count', -1) do
       delete :destroy, :id => p.to_param
@@ -73,12 +74,14 @@ class PagesControllerTest < ActionController::TestCase
   end
   
   test "should get home" do
+    authenticate!
     p = Page.make(:title => 'home')
     get :show, :id => 'home'
     assert_equal p, assigns(:page)
   end
   
   test "should create and get home if no pages exist" do
+    authenticate!
     Page.destroy_all
     assert_difference 'Page.count' do
       get :show, :id => 'home'
@@ -87,6 +90,7 @@ class PagesControllerTest < ActionController::TestCase
   end
   
   test "should use custom layout for show or home actions" do
+    authenticate!
     p = Page.make
     Setting.get.update_attribute(:theme, '<title><%= "custom" + " layout" %></title>')
     get :show, :id => p.slug
