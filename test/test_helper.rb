@@ -5,6 +5,8 @@ require 'test_help'
 
 class ActiveSupport::TestCase
   
-  setup { Sham.reset }
+  setup do
+    Sham.reset
+  end
   
 end

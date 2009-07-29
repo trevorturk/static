@@ -7,4 +7,5 @@ config.action_controller.allow_forgery_protection    = false
 config.action_mailer.delivery_method = :test
 config.logger = Logger.new(config.log_path, 2, 20.megabytes) # Automatically rotate log files
 config.gem 'faker', :version => '0.3.1'
+config.gem 'mocha', :version => '0.9.7'
 config.gem 'notahat-machinist', :version => '1.0.3', :lib => 'machinist', :source => 'http://gems.github.com'

@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   
   # before_filter :authenticate
   
-  # def authenticate
-  #   authenticate_or_request_with_http_digest('admin') do |admin|
-  #     'admin'
-  #   end
-  # end
+  def authenticate
+    authenticate_or_request_with_http_digest('admin') do |admin|
+      'admin'
+    end
+  end
   
 end

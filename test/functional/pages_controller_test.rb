@@ -9,12 +9,24 @@ class PagesControllerTest < ActionController::TestCase
   
   test "should get full index" do
     Page.make
+    Setting.get
     Upload.make
     get :index
     assert_response :success
   end
-    
+  
+  # test "index requires authentication" do
+  #   get :index
+  #   assert_response :unauthorized
+  # end
+  
   test "show" do
+    p = Page.make
+    get :show, :id => p.slug
+    assert_response :success
+  end
+  
+  test "show doesn't require authentication" do
     p = Page.make
     get :show, :id => p.slug
     assert_response :success

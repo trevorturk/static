@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   
-  # skip_before_filter :authenticate, :only => :show
-  layout 'custom', :only => :show
+  skip_before_filter :authenticate, :only => :show  
   
   def index
     @pages = Page.all
@@ -15,6 +14,7 @@ class PagesController < ApplicationController
     else
       @page = Page.find_by_slug!(params[:id])
     end
+    render 'show', :layout => 'custom'
   end
   
   def new
