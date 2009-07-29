@@ -6,7 +6,7 @@
   <table>
     <% @pages.each do |page| %>
       <tr>
-        <td><b><%= link_to page, slug_path(page.slug) %></b></td>
+        <td><b><%= link_to page, page %></b></td>
         <td><%= link_to 'edit', edit_page_path(page) %></td>
         <td><%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete unless page.home? %></td>
       </tr>
@@ -38,7 +38,7 @@
   </table>
 
   <h1>Settings</h1>
-  <% form_for(@settings, :url => edit_settings_path) do |f| %>
+  <% form_for(@settings) do |f| %>
     <%= f.error_messages %>
     <p><%= f.text_area :theme, :rows => '12', :cols => '70' %></p>
     <p><%= f.submit 'Save changes' %> or <%= link_to 'cancel', admin_path %></p>

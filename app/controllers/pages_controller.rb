@@ -1,8 +1,20 @@
 class PagesController < ApplicationController
   
+  # skip_before_filter :authenticate, :only => :show
+  layout 'custom', :only => :show
+  
+  def index
+    @pages = Page.all
+    @settings = Setting.get
+    @uploads = Upload.all(:order => 'attachment_content_type')
+  end
+  
   def show
-    @page = Page.find_by_slug!(params[:id])
-    render :action => 'show', :layout => 'custom'
+    if params[:id] == 'home'
+      @page = Page.home
+    else
+      @page = Page.find_by_slug!(params[:id])
+    end
   end
   
   def new
@@ -36,10 +48,5 @@ class PagesController < ApplicationController
     @page.destroy
     redirect_to admin_path
   end
-  
-  def home
-    @page = Page.home
-    render :action => 'show', :layout => 'custom'
-  end
-  
+    
 end

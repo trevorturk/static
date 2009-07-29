@@ -1,10 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.root :controller => 'pages', :action => 'home'
-  map.resources :pages, :except => [:index, :edit]
-  map.resources :themes, :only => [:edit, :update]
+  map.root :controller => 'pages', :action => 'show', :id => 'home'
+  map.resources :pages
+  map.resources :settings, :only => [:update]
   map.resources :uploads, :only => [:new, :create, :destroy]
-  map.admin '/admin', :controller => 'admin', :action => 'index'
-  map.edit_page '/:id/edit', :controller => 'pages', :action => 'edit'
-  map.edit_settings '/admin/settings', :controller => 'admin', :action => 'settings'
-  map.slug '/:id', :controller => 'pages', :action => 'show'
+  map.admin '/admin', :controller => 'pages', :action => 'index'
+  map.page '/:id', :controller => 'pages', :action => 'show' # last route
 end
