@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   
   helper :all
   protect_from_forgery
+  filter_parameter_logging :password, :password_confirmation
   
   before_filter :get_settings, :authenticate
   
@@ -12,9 +13,9 @@ class ApplicationController < ActionController::Base
   end
   
   def authenticate
-    unless @settings.password.blank?
+    unless @settings.password_hash.blank?
       authenticate_or_request_with_http_digest('admin') do |admin|
-        @settings.password
+        @settings.password_hash
       end
     end
   end

@@ -30,5 +30,5 @@ class ApplicationTest < ActionController::IntegrationTest
     assert_response :success
     assert Page.last.slug == 'home'
   end
-  
+    
 end
