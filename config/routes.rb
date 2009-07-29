@@ -4,5 +4,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :settings, :only => [:update]
   map.resources :uploads, :only => [:new, :create, :destroy]
   map.admin '/admin', :controller => 'pages', :action => 'index'
-  map.page '/:id', :controller => 'pages', :action => 'show' # last route
+  map.slug '/:id', :controller => 'pages', :action => 'show' # last route
 end

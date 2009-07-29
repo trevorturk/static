@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090728154224) do
+ActiveRecord::Schema.define(:version => 20090729031618) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(:version => 20090728154224) do
   end
 
   create_table "settings", :force => true do |t|
-    t.text "theme"
+    t.text   "layout"
+    t.string "password"
   end
 
   create_table "uploads", :force => true do |t|

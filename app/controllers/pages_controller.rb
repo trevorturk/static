@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   
   def index
     @pages = Page.all
-    @settings = Setting.get
     @uploads = Upload.all(:order => 'attachment_content_type')
   end
   

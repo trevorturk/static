@@ -3,13 +3,11 @@ require 'test_helper'
 class UploadsControllerTest < ActionController::TestCase
     
   test "should get new" do
-    authenticate!
     get :new
     assert_response :success
   end
 
   test "should create upload" do
-    authenticate!
     assert_difference('Upload.count') do
       post :create, :upload => { :attachment => fixture_file_upload('files/rails.png', 'image/png') }
     end
@@ -17,7 +15,6 @@ class UploadsControllerTest < ActionController::TestCase
   end
 
   test "should create upload via (stubbed out) url" do
-    authenticate!
     Upload.any_instance.expects(:do_download_remote_file).returns(File.open("#{Rails.root}/test/fixtures/files/rails.png"))
     assert_difference 'Upload.count' do
       post :create, :upload => { :attachment_url => 'rails.png' }
@@ -26,7 +23,6 @@ class UploadsControllerTest < ActionController::TestCase
   end
   
   test "should not bomb on upload via bogus (stubbed out) url" do
-    authenticate!
     Upload.any_instance.expects(:do_download_remote_file).returns(nil)
     assert_no_difference 'Upload.count' do
       post :create, :upload => { :attachment_url => 'invalid' }
@@ -35,7 +31,6 @@ class UploadsControllerTest < ActionController::TestCase
   end
   
   test "should destroy upload" do
-    authenticate!
     u = Upload.make
     assert_difference('Upload.count', -1) do
       delete :destroy, :id => u.to_param

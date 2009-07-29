@@ -9,8 +9,8 @@ class ActiveSupport::TestCase
     Sham.reset
   end
   
-  def authenticate!
-    @controller.stubs(:authenticate_with_http_digest).returns true
+  def deauthenticate!
+    Setting.get.update_attribute(:password, 'password')
   end
-  
+    
 end

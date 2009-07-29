@@ -3,14 +3,19 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   
-  before_filter :authenticate
+  before_filter :get_settings, :authenticate
   
   protected
   
+  def get_settings
+    @settings = Setting.get
+  end
+  
   def authenticate
-    authenticate_or_request_with_http_digest('admin') do |username|
-      # Digest::MD5.hexdigest(["username",'Admin',"password"].join(":"))
-      "26b7f9a787bf6a491f4ea6483c79eebe"
+    unless @settings.password.blank?
+      authenticate_or_request_with_http_digest('admin') do |admin|
+        @settings.password
+      end
     end
   end
   

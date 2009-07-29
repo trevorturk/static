@@ -40,7 +40,7 @@
   <h1>Settings</h1>
   <% form_for(@settings) do |f| %>
     <%= f.error_messages %>
-    <p><%= f.text_area :theme, :rows => '12', :cols => '70' %></p>
+    <p><%= f.text_area :layout, :rows => '12', :cols => '70' %></p>
     <p><%= f.submit 'Save changes' %> or <%= link_to 'cancel', admin_path %></p>
   <% end %>
   

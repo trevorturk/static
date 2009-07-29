@@ -1,12 +1,14 @@
 class Setting < ActiveRecord::Base
   
-  attr_accessible :theme
+  attr_accessible :layout, :password
   
-  validates_presence_of :theme
+  validates_presence_of :layout
   
   def self.get
     setting = first
-    setting = Setting.create!(:theme => File.read(File.dirname(__FILE__) + '/../views/layouts/application.html.erb')) if setting.nil?
+    if setting.nil?
+      setting = Setting.create!(:layout => File.read(File.dirname(__FILE__) + '/../views/layouts/application.html.erb'))
+    end
     setting
   end
   
