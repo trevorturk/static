@@ -8,7 +8,7 @@ class Upload < ActiveRecord::Base
     has_attached_file :attachment, 
                       :storage => :s3, 
                       :path => ":basename_:style.:extension", 
-                      :default_style => :medium,
+                      :default_style => :original,
                       :bucket => CONFIG['s3_bucket_name'],
                       :s3_credentials => { :access_key_id => CONFIG['s3_access_id'], :secret_access_key => CONFIG['s3_secret_key'] },
                       :s3_headers => { 'Cache-Control' => 'max-age=315576000', 'Expires' => 10.years.from_now.httpdate },
@@ -17,7 +17,7 @@ class Upload < ActiveRecord::Base
     has_attached_file :attachment, 
                       :storage => :filesystem, 
                       :url => "/uploads/:basename_:style.:extension",
-                      :default_style => :medium,
+                      :default_style => :original,
                       :styles => { :square => '75x75#', :thumb => '100x100>', :small => '240x240>', :medium => '500x500>', :large => '1024x1024>' }
   end
   
