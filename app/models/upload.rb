@@ -7,7 +7,7 @@ class Upload < ActiveRecord::Base
   if CONFIG['s3']
     has_attached_file :attachment, 
                       :storage => :s3, 
-                      :path => ":basename_:style.:extension", 
+                      :path => ":basename:normalized_style.:extension", 
                       :default_style => :original,
                       :bucket => CONFIG['s3_bucket_name'],
                       :s3_credentials => { :access_key_id => CONFIG['s3_access_id'], :secret_access_key => CONFIG['s3_secret_key'] },
@@ -16,9 +16,13 @@ class Upload < ActiveRecord::Base
   else
     has_attached_file :attachment, 
                       :storage => :filesystem, 
-                      :url => "/uploads/:basename_:style.:extension",
+                      :url => "/uploads/:basename:normalized_style.:extension",
                       :default_style => :original,
                       :styles => { :square => '75x75#', :thumb => '100x100>', :small => '240x240>', :medium => '500x500>', :large => '1024x1024>' }
+  end
+  
+  Paperclip.interpolates :normalized_style do |attachment, style|
+    "_#{style}" if attachment.instance.image? && style != :original
   end
   
   before_validation :download_remote_file, :if => :attachment_url_provided?
