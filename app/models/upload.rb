@@ -9,7 +9,7 @@ class Upload < ActiveRecord::Base
   if CONFIG['s3']
     has_attached_file :attachment, 
                       :storage => :s3, 
-                      :path => ":id/:basename:normalized_style.:extension", 
+                      :path => ":basename:normalized_style.:extension", 
                       :default_style => :original,
                       :bucket => CONFIG['s3_bucket_name'],
                       :s3_credentials => { :access_key_id => CONFIG['s3_access_id'], :secret_access_key => CONFIG['s3_secret_key'] },
@@ -18,7 +18,7 @@ class Upload < ActiveRecord::Base
   else
     has_attached_file :attachment, 
                       :storage => :filesystem, 
-                      :url => "/uploads/:id/:basename:normalized_style.:extension",
+                      :url => "/uploads/:basename:normalized_style.:extension",
                       :default_style => :original,
                       :styles => STYLES
   end
