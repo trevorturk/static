@@ -7,11 +7,8 @@ test:
   session_secret: c62e123a70a80fe23c6364f047731761
   
 production:
-  # SESSION SETTINGS
   session_key: # any unique string that identifies your app
   session_secret: # run "rake secret" to generate a session secret
-  
-  # AMAZON S3
-  s3_access_id: # Sign up at http://aws.amazon.com/s3/
+  s3_access_id: # sign up for Amazon S3 at http://aws.amazon.com/s3/
   s3_secret_key: # ...then go to Your Account->Access Identifiers to get your access_id and secret_key
   s3_bucket_name: # ...then choose a name for your bucket, set it here, and run "rake s3:create"
