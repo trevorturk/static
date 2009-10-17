@@ -29,19 +29,19 @@ script/server
 
 sudo gem install heroku
 heroku create
-# Set the variables for your production environment in config/config.yml
+mate config/config.yml # configure the production environment
 rake s3:create
 rake heroku:config
 git push heroku master
 heroku rake db:schema:load
 heroku open
-# Read more about Heroku here: http://heroku.com/
 
 
 == Upgrading
 
+heroku db:pull sqlite://db/backup.sqlite3
 git pull
-# Review possible config changes in config/config.example.yml
+mate config/config.example.yml # review possible changes
 rake heroku:config
 git push heroku master
 heroku rake db:migrate
