@@ -8,16 +8,11 @@ class Setting < ActiveRecord::Base
   before_save :encrypt_password
   
   def self.get
-    setting = first
-    if setting.nil?
-      setting = Setting.create!(:layout => File.read(File.dirname(__FILE__) + '/../views/layouts/application.html.erb'))
-    end
-    setting
+    first || Setting.create!(:layout => File.read(File.dirname(__FILE__) + '/../views/layouts/application.html.erb'))
   end
   
   def encrypt_password
-    return if password.blank?
-    self.password_hash = Digest::MD5.hexdigest(['admin','admin',password].join(":"))
+    self.password_hash = Digest::MD5.hexdigest(['admin','admin',password].join(":")) unless password.blank?
   end
   
 end
