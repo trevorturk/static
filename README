@@ -43,6 +43,7 @@ heroku open
 
 heroku db:pull sqlite://db/backup.sqlite3
 git pull
+gem bundle
 mate config/config.example.yml # review possible changes
 rake heroku:config
 git push heroku master
