@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   
   helper :all
   protect_from_forgery
-  filter_parameter_logging :password, :password_confirmation
+  filter_parameter_logging :password
   
   before_filter :get_settings, :authenticate
   
