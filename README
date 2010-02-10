@@ -31,6 +31,7 @@ script/server
 
 sudo gem install heroku
 heroku create
+# Sign up for Amazon S3 at http://aws.amazon.com/s3/ see next step
 mate config/config.yml # configure the production environment
 rake s3:create
 rake heroku:config
