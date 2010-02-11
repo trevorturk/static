@@ -1,23 +1,15 @@
 == About
 
 Static is a super simple Rails CMS for Heroku.
-
-Code: http://github.com/trevorturk/static/
-Demo: http://static.heroku.com/
-Screenshot: http://github.com/trevorturk/static/blob/master/public/screenshot.png
-
-
-== Requirements 
-
-Rails: http://guides.rubyonrails.org/getting_started.html
-Git: http://book.git-scm.com/2_installing_git.html
+http://almosteffortless.com/static/
 
 
 == Installation
 
+# Requires Ruby >= 1.8.7
 git clone git://github.com/trevorturk/static.git
 cd static
-sudo gem install bundler
+sudo gem install bundler --version='0.8.0' # until heroku supports 0.9.x
 gem bundle
 cp config/database.example.yml config/database.yml
 cp config/config.example.yml config/config.yml
@@ -31,9 +23,8 @@ script/server
 
 sudo gem install heroku
 heroku create
-# Sign up for Amazon S3 at http://aws.amazon.com/s3/ see next step
-mate config/config.yml # configure the production environment
-rake s3:create
+# Set the variables for your production environment in config/config.yml
+rake s3:create # if using Amazon S3
 rake heroku:config
 git push heroku master
 heroku rake db:schema:load
@@ -62,12 +53,12 @@ heroku open
 | Models               |   114 |    85 |       3 |      13 |   4 |     4 |
 | Libraries            |     0 |     0 |       0 |       0 |   0 |     0 |
 | Integration tests    |    34 |    29 |       1 |       0 |   0 |     0 |
-| Functional tests     |   146 |   121 |       3 |       0 |   0 |     0 |
+| Functional tests     |   151 |   126 |       3 |       0 |   0 |     0 |
 | Unit tests           |   157 |   131 |       3 |       0 |   0 |     0 |
 +----------------------+-------+-------+---------+---------+-----+-------+
-| Total                |   557 |   451 |      14 |      26 |   1 |    15 |
+| Total                |   562 |   456 |      14 |      26 |   1 |    15 |
 +----------------------+-------+-------+---------+---------+-----+-------+
-  Code LOC: 170     Test LOC: 281     Code to Test Ratio: 1:1.7
+  Code LOC: 170     Test LOC: 286     Code to Test Ratio: 1:1.7
 
 
 == MIT License
