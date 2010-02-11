@@ -43,6 +43,21 @@ heroku rake db:migrate
 heroku open
 
 
+== Changes
+
+0.1
+- Stable public release
+
+
+== Contributors
+
+git log | grep Author | sort | uniq
+
+Charles_Magid
+Keenan Brock
+Trevor Turk
+
+
 == Stats
 
 +----------------------+-------+-------+---------+---------+-----+-------+
