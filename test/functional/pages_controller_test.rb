@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
-  
+
   test "should get empty index" do
     get :index
     assert_response :success
   end
-  
+
   test "should get full index" do
     Page.make
     Setting.get
@@ -14,19 +14,19 @@ class PagesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
   end
-    
+
   test "show" do
     p = Page.make
     get :show, :id => p.slug
     assert_response :success
   end
-    
+
   test "show requires page" do
     assert_raises ActiveRecord::RecordNotFound do
       get :show, :slug => 'invalid'
     end
   end
-  
+
   test "should get new" do
     get :new
     assert_response :success
@@ -38,7 +38,7 @@ class PagesControllerTest < ActionController::TestCase
     end
     assert_redirected_to admin_path
   end
-    
+
   test "should get edit" do
     p = Page.make
     get :edit, :id => p.to_param
@@ -60,13 +60,13 @@ class PagesControllerTest < ActionController::TestCase
     end
     assert_redirected_to admin_path
   end
-  
+
   test "should get home" do
     p = Page.make(:title => 'home')
     get :show, :id => 'home'
     assert_equal p, assigns(:page)
   end
-  
+
   test "should create and get home if no pages exist" do
     Page.destroy_all
     assert_difference 'Page.count' do
@@ -74,7 +74,7 @@ class PagesControllerTest < ActionController::TestCase
       assert_equal Page.home, assigns(:page)
     end
   end
-  
+
   test "should use custom layout for show or home actions" do
     p = Page.make
     Setting.get.update_attribute(:layout, '<title><%= "custom" + " layout" %></title>')
@@ -83,5 +83,10 @@ class PagesControllerTest < ActionController::TestCase
     get :show, :id => 'home'
     assert_select 'title', 'custom layout'
   end
-  
+
+  test "should allow erb in pages" do
+    p = Page.make(:body => '<div id="<%= "hello" + "world" %>"></div>')
+    get :show, :id => p.slug
+    assert_select '#helloworld'
+  end
 end
