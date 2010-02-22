@@ -9,8 +9,8 @@ http://almosteffortless.com/static/
 # Requires Ruby >= 1.8.7
 git clone git://github.com/trevorturk/static.git
 cd static
-sudo gem install bundler --version='0.8.0' # until heroku supports 0.9.x
-gem bundle
+sudo gem install bundler
+bundle install vendor/bundler_gems --without production
 cp config/database.example.yml config/database.yml
 cp config/config.example.yml config/config.yml
 rake db:create
@@ -35,7 +35,7 @@ heroku open
 
 heroku db:pull sqlite://db/backup.sqlite3
 git pull
-gem bundle
+bundle install vendor/bundler_gems --without production
 mate config/config.example.yml # review possible changes
 rake heroku:config
 git push heroku master
