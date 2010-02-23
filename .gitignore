@@ -11,6 +11,5 @@
 /db/*.sqlite3
 /public/uploads/*
 bin/*
-vendor/bundler_gems/*
-!vendor/bundler_gems/cache/
+vendor/bundler_gems
 .bundle/
