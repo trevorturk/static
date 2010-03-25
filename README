@@ -43,6 +43,11 @@ heroku rake db:migrate
 heroku open
 
 
+== Are you using Static? 
+
+Add your site here: http://wiki.github.com/trevorturk/static/
+
+
 == Changes
 
 0.1
