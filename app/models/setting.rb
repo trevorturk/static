@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class Setting < ActiveRecord::Base
   
   attr_accessible :layout, :password

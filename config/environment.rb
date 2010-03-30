@@ -2,8 +2,8 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  require 'digest/md5'
-  require 'yaml'
+  require 'yaml' # for config file
+  require 'active_support' # for session_secret
   CONFIG = (YAML.load_file('config/config.yml')[RAILS_ENV] rescue {}).merge(ENV)
   CONFIG['s3'] = true if CONFIG['s3_access_id'] && CONFIG['s3_secret_key'] && CONFIG['s3_bucket_name']
   CONFIG['session_key'] ||= 'static'
