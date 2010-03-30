@@ -1,8 +1,6 @@
-.bundle
 /config/config.yml
 /config/database.yml
 /db/*.sqlite3
-/log/*
+/log/*.log
 /public/uploads/*
 /tmp/*
-/vendor/bundler_gems/*
