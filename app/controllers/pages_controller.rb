@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
-  
-  skip_before_filter :authenticate, :only => :show  
-  
+
+  skip_before_filter :authenticate, :only => :show
+
   def index
     @pages = Page.all
     @uploads = Upload.all(:order => 'attachment_content_type')
   end
-  
+
   def show
     if params[:id] == 'home'
       @page = Page.home
@@ -15,15 +15,15 @@ class PagesController < ApplicationController
     end
     render 'show', :layout => 'custom'
   end
-  
+
   def new
     @page = Page.new
   end
-  
+
   def edit
     @page = Page.find_by_slug!(params[:id])
   end
-  
+
   def create
     @page = Page.new(params[:page])
     if @page.save
@@ -32,7 +32,7 @@ class PagesController < ApplicationController
       render :action => "new"
     end
   end
-  
+
   def update
     @page = Page.find_by_slug!(params[:id])
     if @page.update_attributes(params[:page])
@@ -41,11 +41,10 @@ class PagesController < ApplicationController
       render :action => "edit"
     end
   end
-  
+
   def destroy
     @page = Page.find_by_slug!(params[:id])
     @page.destroy
     redirect_to admin_path
   end
-    
 end

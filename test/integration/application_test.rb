@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ApplicationTest < ActionController::IntegrationTest
-  
+
   test "authentication" do
     deauthenticate!
     get '/'
@@ -13,13 +13,13 @@ class ApplicationTest < ActionController::IntegrationTest
     post '/pages', :page => Page.plan
     assert_response :unauthorized
   end
-  
+
   test "slug_path" do
     p = Page.make
     get "/#{p.slug}"
     assert_response :success
   end
-  
+
   test "blank app" do
     Page.destroy_all
     Setting.destroy_all
@@ -30,5 +30,4 @@ class ApplicationTest < ActionController::IntegrationTest
     assert_response :success
     assert Page.last.slug == 'home'
   end
-    
 end

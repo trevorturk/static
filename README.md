@@ -18,7 +18,7 @@ Install
 -------
 
 Get the app running in your local development environment:
-    
+
     gem install rails --version="2.3.5"
     git clone git://github.com/trevorturk/static.git
     cd static

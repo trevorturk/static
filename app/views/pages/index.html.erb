@@ -1,7 +1,7 @@
 <div class="admin">
-  
+
   <p class="header"><%= link_to 'View site &raquo;', root_path %></p>
-  
+
   <h1>Pages <span class="link"><%= link_to 'new &raquo;', new_page_path %></span></h1>
   <table>
     <% @pages.each do |page| %>
@@ -50,7 +50,7 @@
     </p>
     <p><%= f.submit 'Save changes' %> or <%= link_to 'cancel', admin_path %></p>
   <% end %>
-  
+
   <p class="footer">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
-  
+
 </div>
