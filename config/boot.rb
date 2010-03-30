@@ -117,7 +117,7 @@ class Rails::Boot
     Rails::Initializer.class_eval do
       old_load = instance_method(:load_environment)
       define_method(:load_environment) do
-        Bundler.require :default, Rails.env
+        Bundler.require Rails.env, :plugins
         old_load.bind(self).call
       end
     end

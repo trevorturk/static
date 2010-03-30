@@ -21,5 +21,4 @@ end
 
 group :deployment do
   gem "heroku", "1.8.3"
-  gem "taps", "0.2.26"
 end

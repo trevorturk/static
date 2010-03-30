@@ -22,11 +22,11 @@ Get the app running in your local development environment:
     git clone git://github.com/trevorturk/static.git
     cd static
     gem install bundler
-    bundle install vendor/bundler_gems --without production
+    bundle install --without production
     cp config/database.example.yml config/database.yml
     cp config/config.example.yml config/config.yml
-    rake db:create
-    rake db:schema:load
+    bundle exec rake db:create
+    bundle exec rake db:schema:load
     script/server
     open http://localhost:3000/
 
@@ -48,8 +48,8 @@ Enable Uploads via Amazon S3
 Provide your Amazon S3 credentials to enable uploads on Heroku:
 
     mate config/config.yml
-    rake s3:create
-    rake heroku:config
+    bundle exec rake s3:create
+    bundle exec rake heroku:config
 
 
 Contributors
