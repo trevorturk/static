@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   skip_before_filter :authenticate, :only => :show
 
   def index
-    @pages = Page.all
-    @uploads = Upload.all(:order => 'attachment_content_type')
+    @pages = Page.all(:order => 'title')
+    @uploads = Upload.all(:order => 'attachment_file_name')
   end
 
   def show
