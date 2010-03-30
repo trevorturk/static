@@ -11,6 +11,8 @@ class UploadsController < ApplicationController
     else
       render :action => "new"
     end
+  rescue Errno::EROFS
+    render :text => "Heroku has a read-only filesystem. Have you enabled S3 support? Please review the README."  
   end
   
   def destroy
