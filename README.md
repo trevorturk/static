@@ -3,11 +3,13 @@ Static
 
 Static is a super simple Rails CMS for Heroku.
 
-Code: <http://github.com/trevorturk/static/>
+- Code: <http://github.com/trevorturk/static/>
+- Demo: <http://static.heroku.com/> # resets every 24 hours
+- More: <http://wiki.github.com/trevorturk/static/> # add your site!
 
-Demo: <http://static.heroku.com/> # resets every 24 hours
 
-More: <http://wiki.github.com/trevorturk/static/> # add your site!
+Screenshot
+----------
 
 ![Screenshot](http://s3.amazonaws.com/almosteffortless/static.png)
 
@@ -34,7 +36,7 @@ Deploy
 
 Deploy the app to Heroku:
 
-    heroku create --stack bamboo-ree-1.8.7
+    heroku create
     git push heroku master
     heroku rake db:schema:load
     heroku open
@@ -52,9 +54,10 @@ Provide your Amazon S3 credentials to enable uploads on Heroku:
 
 Contributors
 ------------
-Trevor Turk
-Charles Magid
-Keenan Brock
+
+- Trevor Turk
+- Charles Magid
+- Keenan Brock
 
 
 MIT License
