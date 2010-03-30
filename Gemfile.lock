@@ -1,0 +1,77 @@
+--- 
+dependencies: 
+  faker: 
+    group: 
+    - :test
+    version: = 0.3.1
+  right_http_connection: 
+    group: 
+    - :default
+    version: = 1.2.4
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.5
+  pg: 
+    group: 
+    - :production
+    version: = 0.8.0
+  sqlite3-ruby: 
+    group: 
+    - :development
+    version: = 1.2.5
+    require: 
+    - sqlite3
+  machinist: 
+    group: 
+    - :test
+    version: = 1.0.6
+  right_aws: 
+    group: 
+    - :default
+    version: = 1.9.0
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.0
+  mocha: 
+    group: 
+    - :test
+    version: = 0.9.8
+specs: 
+- rake: 
+    version: 0.8.7
+- activesupport: 
+    version: 2.3.5
+- rack: 
+    version: 1.0.1
+- actionpack: 
+    version: 2.3.5
+- actionmailer: 
+    version: 2.3.5
+- activerecord: 
+    version: 2.3.5
+- activeresource: 
+    version: 2.3.5
+- faker: 
+    version: 0.3.1
+- machinist: 
+    version: 1.0.6
+- mocha: 
+    version: 0.9.8
+- paperclip: 
+    version: 2.3.0
+- pg: 
+    version: 0.8.0
+- rails: 
+    version: 2.3.5
+- right_http_connection: 
+    version: 1.2.4
+- right_aws: 
+    version: 1.9.0
+- sqlite3-ruby: 
+    version: 1.2.5
+hash: c13d054c645d1fe0520b8c562415f75c9e65a571
+sources: 
+- Rubygems: 
+    uri: http://rubygems.org
