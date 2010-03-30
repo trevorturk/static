@@ -1,0 +1,3 @@
+paperclip --version "2.3.0"
+right_aws --version "1.9.0"
+right_http_connection --version "1.2.4"

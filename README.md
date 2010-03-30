@@ -19,12 +19,13 @@ Install
 
 Get the app running in your local development environment:
     
-    sudo gem install rails --version="2.3.5"
+    gem install rails --version="2.3.5"
     git clone git://github.com/trevorturk/static.git
     cd static
     cp config/database.example.yml config/database.yml
     cp config/config.example.yml config/config.yml
-    sudo rake gems:install
+    touch log/development.log
+    rake gems:install
     rake db:create
     rake db:schema:load
     script/server
@@ -36,7 +37,7 @@ Deploy
 
 Deploy the app to Heroku:
 
-    sudo gem install heroku
+    gem install heroku
     heroku create
     git push heroku master
     heroku rake db:schema:load
