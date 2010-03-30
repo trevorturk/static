@@ -4,7 +4,9 @@ Static
 Static is a super simple Rails CMS for Heroku.
 
 Code: <http://github.com/trevorturk/static/>
+
 Demo: <http://static.heroku.com/> # resets every 24 hours
+
 More: <http://wiki.github.com/trevorturk/static/> # add your site!
 
 ![Screenshot](http://s3.amazonaws.com/almosteffortless/static.png)
@@ -15,16 +17,16 @@ Install
 
 Get the app running in your local development environment:
 
-  git clone git://github.com/trevorturk/static.git
-  cd static
-  gem install bundler
-  bundle install vendor/bundler_gems --without production
-  cp config/database.example.yml config/database.yml
-  cp config/config.example.yml config/config.yml
-  rake db:create
-  rake db:schema:load
-  script/server
-  open http://localhost:3000/
+    git clone git://github.com/trevorturk/static.git
+    cd static
+    gem install bundler
+    bundle install vendor/bundler_gems --without production
+    cp config/database.example.yml config/database.yml
+    cp config/config.example.yml config/config.yml
+    rake db:create
+    rake db:schema:load
+    script/server
+    open http://localhost:3000/
 
 
 Deploy
@@ -32,10 +34,10 @@ Deploy
 
 Deploy the app to Heroku:
 
-  heroku create
-  git push heroku master
-  heroku rake db:schema:load
-  heroku open
+    heroku create --stack bamboo-ree-1.8.7
+    git push heroku master
+    heroku rake db:schema:load
+    heroku open
 
 
 Enable Uploads via Amazon S3
@@ -43,9 +45,9 @@ Enable Uploads via Amazon S3
 
 Provide your Amazon S3 credentials to enable uploads on Heroku:
 
-  mate config/config.yml
-  rake s3:create
-  rake heroku:config
+    mate config/config.yml
+    rake s3:create
+    rake heroku:config
 
 
 Contributors
