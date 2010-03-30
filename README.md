@@ -50,8 +50,8 @@ Enable Uploads via Amazon S3
 Provide your Amazon S3 credentials to enable uploads on Heroku:
 
     mate config/config.yml
-    bundle exec rake s3:create
-    bundle exec rake heroku:config
+    rake s3:create
+    rake heroku:config
 
 
 Contributors
