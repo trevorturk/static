@@ -30,7 +30,13 @@
       <% else %>
         <td><%= link_to truncate(upload.to_s), upload.attachment.url %></td>
       <% end %>
-      <td><%= upload.attachment_content_type %></td>
+      <td>
+        <% if upload.image? %>
+          <%= upload.attachment_file_name %>
+        <% else %>
+          <%= upload.attachment_content_type %>
+        <% end %>
+      </td>
       <td><%= number_to_human_size(upload.attachment_file_size) %></td>
       <td><%= link_to 'delete', upload, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
@@ -41,7 +47,7 @@
   <% form_for(@settings) do |f| %>
     <%= f.error_messages %>
     <p>
-      <%= f.label :password, 'Admin password' %><br />
+      <%= f.label :password, 'Password for "admin" user:' %><br />
       <%= f.text_field :password %>
     </p>
     <p>
