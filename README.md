@@ -18,15 +18,15 @@ Install
 -------
 
 Get the app running in your local development environment:
-
+    
+    sudo gem install rails --version="2.3.5"
     git clone git://github.com/trevorturk/static.git
     cd static
-    gem install bundler
-    bundle install --without production
     cp config/database.example.yml config/database.yml
     cp config/config.example.yml config/config.yml
-    bundle exec rake db:create
-    bundle exec rake db:schema:load
+    sudo rake gems:install
+    rake db:create
+    rake db:schema:load
     script/server
     open http://localhost:3000/
 
@@ -36,6 +36,7 @@ Deploy
 
 Deploy the app to Heroku:
 
+    sudo gem install heroku
     heroku create
     git push heroku master
     heroku rake db:schema:load

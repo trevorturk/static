@@ -11,4 +11,7 @@ Rails::Initializer.run do |config|
   config.frameworks -= [:active_resource, :action_mailer]
   config.time_zone = 'UTC'
   config.action_controller.session = {:key => CONFIG['session_key'], :secret => CONFIG['session_secret']}
+  config.gem "paperclip", :version => "2.3.0"
+  config.gem "right_aws", :version => "1.9.0"
+  config.gem "right_http_connection", :version => "1.2.4"
 end
