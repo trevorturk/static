@@ -27,7 +27,8 @@ Get the app running in your local development environment:
     rake db:schema:load
     rake db:seed
     script/server
-    <http://localhost:3000/>
+    
+Visit <http://localhost:3000/> to see the app running locally.
 
 
 Deploy
