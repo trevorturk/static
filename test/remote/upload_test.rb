@@ -8,7 +8,7 @@ class UploadTest < ActiveSupport::TestCase
 
   test "should create an upload via (real) url" do
     u = Upload.create!(:attachment_url => 'http://www.google.com/intl/en_ALL/images/logo.gif')
-    assert_equal 'http://www.google.com/intl/en_ALL/images/logo.gif', u.attachment_remote_url # check for correct original attachment_url value
+    assert_equal 'http://www.google.com/intl/en_ALL/images/logo.gif', u.attachment_remote_url # check for original attachment_url value
     assert_equal 'image/gif', u.attachment_content_type # check for correct type
     assert_equal 8558, u.attachment_file_size # check for correct file size
   end

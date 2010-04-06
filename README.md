@@ -27,6 +27,7 @@ Get the app running in your local development environment:
     rake gems:install
     rake db:create
     rake db:schema:load
+    rake db:seed
     script/server
     open http://localhost:3000/
 
@@ -40,6 +41,7 @@ Deploy the app to Heroku:
     heroku create
     git push heroku master
     heroku rake db:schema:load
+    heroku rake db:seed
     heroku open
 
 

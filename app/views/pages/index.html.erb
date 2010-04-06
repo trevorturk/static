@@ -1,62 +1,58 @@
-<div class="admin">
+<p class="admin-head"><%= link_to 'View site &raquo;', root_path %></p>
 
-  <p class="header"><%= link_to 'View site &raquo;', root_path %></p>
-
-  <h1>Pages <span class="link"><%= link_to 'new &raquo;', new_page_path %></span></h1>
-  <table>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><b><%= link_to page, "/#{page.slug}" %></b></td>
-        <td><%= link_to 'edit', edit_page_path(page) %></td>
-        <td><%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete unless page.home? %></td>
-      </tr>
-    <% end %>
-  </table>
-
-  <h1>Uploads <span class="link"><%= link_to 'new &raquo;', new_upload_path %></span></h1>
-  <table>
-  <% @uploads.each do |upload| %>
+<h1>Pages <span class="action"><%= link_to 'new &raquo;', new_page_path %></span></h1>
+<table>
+  <% @pages.each do |page| %>
     <tr>
-      <% if upload.image? %>
-        <td>
-          <%= link_to image_tag(upload.attachment.url(:square)), upload.attachment.url %><br />
-          <%= link_to 'sq', upload.attachment.url(:square) %>
-          <%= link_to 'th', upload.attachment.url(:thumb) %>
-          <%= link_to 's', upload.attachment.url(:small) %>
-          <%= link_to 'm', upload.attachment.url(:medium) %>
-          <%= link_to 'l', upload.attachment.url(:large) %>
-          <%= link_to 'o', upload.attachment.url(:original) %>
-        </td>
-      <% else %>
-        <td><%= link_to truncate(upload.to_s), upload.attachment.url %></td>
-      <% end %>
-      <td>
-        <% if upload.image? %>
-          <%= upload.attachment_file_name %>
-        <% else %>
-          <%= upload.attachment_content_type %>
-        <% end %>
-      </td>
-      <td><%= number_to_human_size(upload.attachment_file_size) %></td>
-      <td><%= link_to 'delete', upload, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><b><%= link_to page, "/#{page.slug unless page.is_home?}" %></b></td>
+      <td><%= link_to 'edit', edit_page_path(page) %></td>
+      <td><%= link_to 'delete', page, :confirm => 'Are you sure?', :method => :delete unless page.is_home? %></td>
     </tr>
   <% end %>
-  </table>
+</table>
 
-  <h1>Settings</h1>
-  <% form_for(@settings) do |f| %>
-    <%= f.error_messages %>
-    <p>
-      <%= f.label :password, 'Password for "admin" user:' %><br />
-      <%= f.text_field :password %>
-    </p>
-    <p>
-      <%= f.label :layout %><br />
-      <%= f.text_area :layout, :rows => '12', :cols => '70' %>
-    </p>
-    <p><%= f.submit 'Save changes' %> or <%= link_to 'cancel', admin_path %></p>
-  <% end %>
+<h1>Uploads <span class="action"><%= link_to 'new &raquo;', new_upload_path %></span></h1>
+<table>
+<% @uploads.each do |upload| %>
+  <tr>
+    <% if upload.image? %>
+      <td>
+        <%= link_to image_tag(upload.attachment.url(:square)), upload.attachment.url %><br />
+        <%= link_to 'sq', upload.attachment.url(:square) %>
+        <%= link_to 'th', upload.attachment.url(:thumb) %>
+        <%= link_to 's', upload.attachment.url(:small) %>
+        <%= link_to 'm', upload.attachment.url(:medium) %>
+        <%= link_to 'l', upload.attachment.url(:large) %>
+        <%= link_to 'o', upload.attachment.url(:original) %>
+      </td>
+    <% else %>
+      <td><%= link_to truncate(upload.to_s), upload.attachment.url %></td>
+    <% end %>
+    <td>
+      <% if upload.image? %>
+        <%= upload.attachment_file_name %>
+      <% else %>
+        <%= upload.attachment_content_type %>
+      <% end %>
+    </td>
+    <td><%= number_to_human_size(upload.attachment_file_size) %></td>
+    <td><%= link_to 'delete', upload, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
 
-  <p class="footer">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>
+<h1>Settings</h1>
+<% form_for(@settings) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :password, 'Password for "admin" user:' %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :layout %><br />
+    <%= f.text_area :layout, :rows => '12', :cols => '70' %>
+  </p>
+  <p><%= f.submit 'Save changes' %> or <%= link_to 'cancel', admin_path %></p>
+<% end %>
 
-</div>
+<p class="admin-foot">Powered by <a href="http://github.com/trevorturk/static/">Static</a></p>

@@ -3,16 +3,12 @@ class PagesController < ApplicationController
   skip_before_filter :authenticate, :only => :show
 
   def index
-    @pages = Page.all(:order => 'title')
+    @pages = Page.all(:order => 'slug')
     @uploads = Upload.all(:order => 'attachment_file_name')
   end
 
   def show
-    if params[:id] == 'home'
-      @page = Page.home
-    else
-      @page = Page.find_by_slug!(params[:id])
-    end
+    @page = Page.find_by_slug!(params[:id])
     render 'show', :layout => 'custom'
   end
 
@@ -29,7 +25,7 @@ class PagesController < ApplicationController
     if @page.save
       redirect_to admin_path
     else
-      render :action => "new"
+      render :action => 'new'
     end
   end
 
@@ -38,7 +34,7 @@ class PagesController < ApplicationController
     if @page.update_attributes(params[:page])
       redirect_to admin_path
     else
-      render :action => "edit"
+      render :action => 'edit'
     end
   end
 

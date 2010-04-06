@@ -1,13 +1,11 @@
 body {background:#fff; color:#2e3436; margin:15px 30px;}
-h1 {font-size:20px; margin:10px 0;}
 p {margin:10px 0;}
 a {color:#204a87; text-decoration:none;}
 a:hover, a:active {text-decoration:underline;}
+h1 {font-size:20px; margin:10px 0; padding-bottom:4px; border-bottom:1px solid #eeeeec;}
+h1 .action {font-size:14px; font-weight:normal; margin-left:4px;}
+table {margin-bottom:40px;}
 table td {vertical-align:middle; padding:4px 8px 4px 0;}
-.admin table {margin-bottom:40px;}
-.admin h1 {border-bottom:1px solid #eeeeec; padding-bottom:4px;}
-.admin h1 .link {font-size:14px; font-weight:normal; margin-left:4px;}
-.admin .action {float:right;}
-.admin .header {text-align:right;}
-.admin .footer {text-align:right; padding-top:40px; color:#babdb6;}
-.admin .footer a {color:#888a85;}
+.admin-head {text-align:right;}
+.admin-foot {text-align:right; padding-top:40px; color:#babdb6;}
+.admin-foot a {color:#888a85;}

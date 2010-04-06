@@ -1,0 +1,2 @@
+Page.create! :title => 'Home', :body => '<p>Welcome to Static. Visit <a href="/admin">/admin</a> to get started.</p>'
+Setting.create! :layout => File.read("#{RAILS_ROOT}/app/views/layouts/application.html.erb")

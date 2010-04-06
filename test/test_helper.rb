@@ -7,9 +7,11 @@ class ActiveSupport::TestCase
 
   setup do
     Sham.reset
+    Page.make(:title => 'home')
+    Setting.create!(:layout => '<%= yield %>')
   end
 
   def deauthenticate!
-    Setting.get.update_attribute(:password, 'password')
+    Setting.first.update_attribute(:password, 'password')
   end
 end

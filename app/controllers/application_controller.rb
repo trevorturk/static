@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def get_settings
-    @settings = Setting.get
+    @settings = Setting.first
   end
 
   def authenticate

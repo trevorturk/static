@@ -1,18 +1,7 @@
-<h2>New page</h2>
-
-<% form_for(@page) do |f| %>
+<h1>New page</h1>
+<% form_for @page do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit 'Create page' %> or
-    <%= link_to 'cancel', admin_path %>
-  </p>
+  <p><%= f.label :title %><br /><%= f.text_field :title %></p>
+  <p><%= f.label :body %><br /><%= f.text_area :body %></p>
+  <p><%= f.submit 'Create page' %> or <%= link_to 'cancel', admin_path %></p>
 <% end %>

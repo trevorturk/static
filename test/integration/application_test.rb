@@ -19,15 +19,4 @@ class ApplicationTest < ActionController::IntegrationTest
     get "/#{p.slug}"
     assert_response :success
   end
-
-  test "blank app" do
-    Page.destroy_all
-    Setting.destroy_all
-    Upload.destroy_all
-    assert_difference 'Page.count' do
-      get '/'
-    end
-    assert_response :success
-    assert Page.last.slug == 'home'
-  end
 end

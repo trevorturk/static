@@ -1,4 +1,5 @@
-<% form_for(@upload, :html => {:multipart => true}) do |f| %>
+<h1>New upload</h1>
+<% form_for @upload, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
   <p><%= f.file_field :attachment %></p>
   <p>...or upload via URL:</p>

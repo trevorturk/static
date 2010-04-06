@@ -9,10 +9,10 @@ class UploadsController < ApplicationController
     if @upload.save
       redirect_to admin_path
     else
-      render :action => "new"
+      render :action => 'new'
     end
   rescue Errno::EROFS
-    render :text => "Heroku has a read-only filesystem. Have you enabled S3 support? Please review the README."
+    render :text => 'Heroku has a read-only filesystem. Have you enabled S3 support? Please review the README.'
   end
 
   def destroy

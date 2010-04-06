@@ -2,14 +2,9 @@ require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
 
-  test "should get empty index" do
-    get :index
-    assert_response :success
-  end
-
-  test "should get full index" do
+  test "should get index" do
     Page.make
-    Setting.get
+    Setting.first
     Upload.make
     get :index
     assert_response :success
@@ -47,7 +42,7 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should update page" do
     p = Page.make
-    put :update, :id => p.to_param, :page => { :title => 'changed' }
+    put :update, :id => p.to_param, :page => {:title => 'changed'}
     p.reload
     assert_equal 'changed', p.title
     assert_redirected_to admin_path
@@ -62,25 +57,14 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should get home" do
-    p = Page.make(:title => 'home')
     get :show, :id => 'home'
-    assert_equal p, assigns(:page)
+    assert_response :success
   end
 
-  test "should create and get home if no pages exist" do
-    Page.destroy_all
-    assert_difference 'Page.count' do
-      get :show, :id => 'home'
-      assert_equal Page.home, assigns(:page)
-    end
-  end
-
-  test "should use custom layout for show or home actions" do
+  test "should use custom layout for show action" do
     p = Page.make
-    Setting.get.update_attribute(:layout, '<title><%= "custom" + " layout" %></title>')
+    Setting.first.update_attribute(:layout, '<title><%= "custom" + " layout" %></title>')
     get :show, :id => p.slug
-    assert_select 'title', 'custom layout'
-    get :show, :id => 'home'
     assert_select 'title', 'custom layout'
   end
 

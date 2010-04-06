@@ -1,5 +1,6 @@
+require 'open-uri'
+
 class Upload < ActiveRecord::Base
-  require 'open-uri'
 
   attr_accessible :attachment, :attachment_url, :attachment_remote_url
   attr_accessor :attachment_url
