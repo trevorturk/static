@@ -5,13 +5,13 @@ Static is a super simple Rails CMS for Heroku.
 
 - Code: <http://github.com/trevorturk/static/>
 - Demo: <http://static.heroku.com/> # resets every 24 hours
-- More: <http://wiki.github.com/trevorturk/static/> # add your site!
+- Examples: <http://wiki.github.com/trevorturk/static/> # add your site!
 
 
 Screenshot
 ----------
 
-![Screenshot](http://s3.amazonaws.com/almosteffortless/static.png)
+![Screenshot](http://s3.amazonaws.com/trevorturk/static.png)
 
 
 Install
@@ -23,7 +23,6 @@ Get the app running in your local development environment:
     git clone git://github.com/trevorturk/static.git
     cd static
     cp config/database.example.yml config/database.yml
-    cp config/config.example.yml config/config.yml
     touch log/development.log
     rake gems:install
     rake db:create
@@ -47,11 +46,21 @@ Deploy the app to Heroku:
 Enable Uploads via Amazon S3
 ----------------------------
 
-Provide your Amazon S3 credentials to enable uploads on Heroku:
+Get your S3 credentials from Amazon's site in Account -> Security Credentials:
 
-    mate config/config.yml
-    rake s3:create
-    rake heroku:config
+<http://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key>
+
+![S3](http://s3.amazonaws.com/trevorturk/static-s3.png)
+
+Provide Heroku with the credentials:
+
+    heroku config:add s3_access_id=
+    heroku config:add s3_secret_key=
+
+Choose a unique name for your bucket and create it:
+
+    heroku config:add s3_bucket_name=
+    heroku rake s3:create
 
 
 Contributors
