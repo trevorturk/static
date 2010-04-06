@@ -19,12 +19,10 @@ Install
 
 Get the app running in your local development environment:
 
-    gem install rails --version="2.3.5"
+    gem install rails paperclip aws-s3
     git clone git://github.com/trevorturk/static.git
     cd static
     cp config/database.example.yml config/database.yml
-    touch log/development.log
-    rake gems:install
     rake db:create
     rake db:schema:load
     rake db:seed
