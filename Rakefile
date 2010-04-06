@@ -7,8 +7,8 @@ require 'tasks/rails'
 namespace :s3 do
   task :create => :environment do
     desc "Create S3 bucket"
-    AWS::S3::Base.establish_connection!
-    AWS::S3::Bucket.create(ENV['AMAZON_S3_BUCKET_NAME'], :access => :public_read)
+    AWS::S3::Base.establish_connection!(:access_key_id => ENV['access_key_id'], :secret_access_key => ENV['secret_access_key'])
+    AWS::S3::Bucket.create(ENV['s3_bucket_name'], :access => :public_read)
   end
 end
 
