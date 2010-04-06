@@ -7,13 +7,13 @@ class Upload < ActiveRecord::Base
 
   STYLES = { :square => '75x75#', :thumb => '100x100>', :small => '240x240>', :medium => '500x500>', :large => '1024x1024>' }
 
-  if ENV['s3_bucket_name']
+  if ENV['AMAZON_S3_BUCKET_NAME']
     has_attached_file :attachment,
                       :storage => :s3,
                       :path => ":basename:normalized_style.:extension",
                       :default_style => :original,
-                      :bucket => ENV['s3_bucket_name'],
-                      :s3_credentials => { :access_key_id => ENV['s3_access_id'], :secret_access_key => ENV['s3_secret_key'] },
+                      :bucket => ENV['AMAZON_S3_BUCKET_NAME'],
+                      :s3_credentials => { :access_key_id => ENV['AMAZON_ACCESS_KEY_ID'], :secret_access_key => ENV['AMAZON_SECRET_ACCESS_KEY'] },
                       :s3_headers => { 'Cache-Control' => 'max-age=315576000', 'Expires' => 10.years.from_now.httpdate },
                       :styles => STYLES
   else

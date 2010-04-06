@@ -56,12 +56,12 @@ Get your S3 credentials from Amazon's site in Account -> Security Credentials:
 
 Provide Heroku with the credentials:
 
-    heroku config:add s3_access_id=
-    heroku config:add s3_secret_key=
+    heroku config:add AMAZON_ACCESS_KEY_ID=
+    heroku config:add AMAZON_SECRET_ACCESS_KEY=
 
 Choose a unique name for your bucket and create it:
 
-    heroku config:add s3_bucket_name=
+    heroku config:add AMAZON_S3_BUCKET_NAME=
     heroku rake s3:create
 
 
