@@ -19,7 +19,9 @@ Install
 
 Get the app running in your local development environment:
 
-    gem install rails paperclip aws-s3
+    gem install rails -v 2.3.8
+    gem install paperclip -v 2.3.2
+    gem install aws-s3 -v 0.6.2
     git clone git://github.com/trevorturk/static.git
     cd static
     cp config/database.example.yml config/database.yml
